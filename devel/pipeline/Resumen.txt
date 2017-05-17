@@ -1,0 +1,41 @@
++-----------------------------------------------+
+|          CAIN pipeline reduction              |
+|                                               |
+| Developed by Carlos J.Díaz and C. Zurita-IAC  |
+|     based on the IRAF routines CAINDR         |
+|     by R. Barrena and J. Acosta - IAC         |
+| Please report any problems to czurita@iac.es  |
++-----------------------------------------------+
+
+El programa cain.py consta de 10 partes:
+
+1.-Se crea un directorio "REDUCE" donde se hace un 'backup' de las imágenes y se trabaja sobre ellas por si hubiese algún problema con ellas.
+
+2.-Importamos 'flat.py', un programa que se dedica a dividir todas las imágenes en objetos y flats; elimina los flats saturados, defectuosos o fuera de rango. Por último separa los flats en brillantes y oscuros y los combina según el filtro. También divide los objetos por filtros.
+
+3.-Importamos 'correccion.py', un programa que para cada filtro corrige de flat y pixeles malos a las imágenes de objetos. En él debemos indicar el directorio de la mascara "cmask.pl".
+
+4.-Dependiendo de la nomenclatura utilizada para nombrar a las imágenes se emplea uno u otro método de separación.
+
+a) RECOMENDADO. Cada imagen recogida lleva el nombre del objeto observado y a continuación la letra del abecedario correspondiente para cada una de las imágenes de la macro. Ejemplo:'J1354a'.No es imprescindible poner el filtro.
+
+Pues se importa 'div.py', un programa que combina las funciones hselect.py y separa.py para todas las listas de objetos. Con ello se consigue desechar las imágenes erróneas, y dividirlas en grupos en base a la nomenclatura utilizada. "hselect" crea de una lista con $I otra con $I,UT,NIMAGES,OBJECT.
+
+b) NO RECOMENDADO. Cada imagen recogida lleva un nombre aleatorio o no es el anterior.
+
+Pues se importa 'divt.py', un programa que combina las funciones hselect.py y separat.py para todas las listas de objetos. Con ello se consigue desechar las imágenes erróneas, y dividirlas en grupos en base al tiempo de exposición y movimiento del telescopio. En este caso "hselect" crea de una lista con $I otra con $I,UT,NIMAGES,EXPTIME.
+
+5.-Importamos 'cielo.py', un programa que sustrae el cielo a cada grupo de imágenes.
+
+6.-Importamos 'adds.py', un programa que cambia el final de los nombres X.fit a X.fits
+
+7.-Importamos 'offset.py', un programa que mide el offset entre cada una de las imágenes.
+
+8.-Importamos 'slicef.py', un programa que separa las imágenes de un cubo y les añade su offset correspondiente.
+
+9.-Por último, importamos 'ds9.py', un programa que busco las estrellas; alinea las imágenes y las combina finalmente.
+
+10.-Para finalizar se crean las siguientes listas de errores:
+-Para los flats saturados y erroneos flaterror.log
+-Para las imágenes de objetos erróneos Imgerror.log
+-Para las imágenes de objetos sin estrellas Errorfind.log

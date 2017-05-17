@@ -1,0 +1,14 @@
+- Reduccion del ruido:
+   - ajustar una superficie xorder,yorder=3 y obtener el residuo o la respuesta
+   - con la respuesta o residuo combinar los trozos, usando sigclip con 
+      highsig=2.
+   - restar el trozo combinado. 
+   
+   - alternativamente se podria dividir por el flat-field y ya esta corregida
+     la estructura del flat-field  
+     
+ - Introducir en csubditsky la opcion de encontrar los objetos y usar la mascara
+ para crear la imagen por cuadrantes.      
+   
+   
+   

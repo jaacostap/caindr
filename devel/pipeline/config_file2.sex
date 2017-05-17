@@ -1,0 +1,133 @@
+# Configuration file for SExtractor 2.8.6, ordered as used in SExtractor
+# Based on Official Manual v2.5 and SExtractor 2.8.6 internal configuartion file
+# Unnecessary parameters for a basic (simple) usage are commented out.
+# 08/08/2013
+#
+# MN: changed DETECT_MINAREA 3->10    20-08-1997 (for astrometry)
+# MN: changed DETECT_THRESH  0.6->5   20-08-1997 (for astrometry)
+# MN: changed FILTER         Y->N     20-08-1997 (for astrometry)
+# TE: changed DETECT_THRESH 5-> 0.6,
+#             DETECT_MINAREA 10->3,
+#             FILTER N->Y             07-01-1998
+# EB: added PHOT_APERTURES 30,53      19/01/1998
+# TE: changed ANALYSIS_THRESHOLD 3.0 -> 1.2 (23/01/1998)
+# MN: changed BACK_FILTERSIZE   3 -> 5  09-07-1998
+
+#-------------------------------- Catalog ------------------------------------
+
+CATALOG_NAME	prueba.cat	# name of the output catalog
+CATALOG_TYPE	ASCII_HEAD	# "ASCII_HEAD","ASCII","FITS_1.0" or "FITS_LDAC"
+
+PARAMETERS_NAME	27ago09.param.sex	# name of the file containing catalog contents
+
+
+
+#------------------------------- Extraction ----------------------------------
+
+DETECT_TYPE	CCD		# "CCD" or "PHOTO"
+DETECT_MINAREA	30		# minimum number of pixels above threshold
+DETECT_THRESH	1.2		# <sigmas> or <threshold>,<ZP> in mag.arcsec-2
+ANALYSIS_THRESH	2.0		# <sigmas> or <threshold>,<ZP> in mag.arcsec-2
+THRESH_TYPE	 RELATIVE	# Meaning of DETECT_THRESH and ANALYSIS_THRESH
+				# <RELATIVE> or <ABSOLUTE>
+
+
+
+
+#-------------------------- Filtering & Masking ----------------------------------
+FILTER		Y		# apply filter for detection ("Y" or "N")?
+FILTER_NAME	gauss_4.0_7x7.conv	# name of the file containing the filter
+#FILTER_THRESH	1.0		# Lower and Higher filtering thresholds
+#MASK_TYPE	CORRECT		# type of detection MASKing: can be one of
+                                # NONE, BLANK or CORRECT
+
+                                
+                                
+                                
+#-------------------------- Deblending & Cleaning --------------------------------
+
+DEBLEND_NTHRESH	32		# Number of deblending sub-thresholds
+DEBLEND_MINCONT	0.001		# Minimum contrast parameter for deblending (0.005?)
+
+CLEAN		Y		# Clean spurious detections (Y or N)?
+CLEAN_PARAM	1.0		# Cleaning efficiency (1.5?)
+
+
+
+
+#------------------------------ Photometry -----------------------------------
+
+PHOT_APERTURES	20		# MAG_APER aperture diameter(s) in pixels
+PHOT_AUTOPARAMS	3.5, 4.5	# MAG_AUTO parameters: <Kron_fact>,<min_radius>
+
+SATUR_LEVEL	52000.		# level (in ADUs) at which arises saturation
+
+MAG_ZEROPOINT	25.		# magnitude zero-point
+MAG_GAMMA	4.0			# gamma of emulsion (for photographic scans)
+GAIN		8.50		# detector gain in e-/ADU.
+PIXEL_SCALE	1.			# size of pixel in arcsec (0=use FITS WCS info)..1
+
+
+
+
+#------------------------- Star/Galaxy Separation ----------------------------
+
+SEEING_FWHM	1.2		# stellar FWHM in arcsec
+STARNNW_NAME	int.nnw.sex	# Neural-Network_Weight table filename
+
+
+
+
+#------------------------------ Background -----------------------------------
+
+BACK_TYPE	 AUTO		# Background type: <AUTO> or <MANUAL>
+#BACK_VALUE	 0.0,0.0	# Constant Background value for <MANUAL> type
+
+BACK_SIZE	64		# Background mesh: <size> or <width>,<height>
+BACK_FILTERSIZE	5		# Background filter: <size> or <width>,<height>
+#BACK_FILTERTHRESH	0	# Threshold for median filtering of background
+
+BACKPHOTO_TYPE	GLOBAL		# can be "GLOBAL" or "LOCAL"
+BACKPHOTO_THICK	24		# thickness of the background LOCAL annulus
+
+
+
+
+#-------------------------------- Weights ----------------------------------------
+WEIGHT_TYPE	BACKGROUND	# Weighting scheme <NONE>, <BACKGROUND>,
+				# <MAP_RMS>, <MAP_VAR> and <MAP_WEIGHT>
+#WEIGHT_IMAGE	 weight.fits	# File name of external weight map
+#WEIGHT_GAIN	 Y		# Weight maps are gain maps
+#WEIGHT_THRESH	 1 		# Threshold to not consider bad pixels
+
+
+
+
+
+#------------------------------ Check Image ----------------------------------
+
+CHECKIMAGE_TYPE	APERTURES	        # can be one of "NONE", "BACKGROUND",
+				# "MINIBACKGROUND", "-BACKGROUND", "OBJECTS",
+				# "SEGMENTATION", "APERTURES" or "FILTERED"
+CHECKIMAGE_NAME	aper.fits	# Filename for the check-image
+
+
+
+
+#--------------------- Memory (change with caution!) -------------------------
+
+MEMORY_OBJSTACK	2000		# Size of the buffer containing objects
+MEMORY_PIXSTACK	100000		# number of pixels in stack
+MEMORY_BUFSIZE	512		# number of lines in buffer
+
+
+
+#----------------------------- Miscellaneous ---------------------------------
+
+VERBOSE_TYPE	QUIET		# can be "QUIET", "NORMAL" or "FULL"
+
+
+
+#------------------------------- New Stuff -----------------------------------
+
+# Surprise!!

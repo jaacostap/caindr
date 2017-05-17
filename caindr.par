@@ -1,0 +1,3 @@
+# caindr package 
+version,s,h,"jan2007"
+motd,b,h,yes,,,"type the welcome banner?"

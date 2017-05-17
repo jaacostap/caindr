@@ -1,0 +1,38 @@
++-----------------------------------------------+
+|          CAIN pipeline reduction              |
+|                                               |
+| Developed by Carlos J.Díaz and C. Zurita-IAC  |
+|     based on the IRAF routines CAINDR         |
+|     by R. Barrena and J. Acosta - IAC         |
+| Please report any problems to czurita@iac.es  |
++-----------------------------------------------+
+
+Resolución de versiones:
+
+Versión 1.0
+
+Versión 2.0
+*Añadido 2º método de separación de imágenes.
+
+Versión 2.1
+*Problema de separación de flats saturados arreglado (1ºversión).
+
+Versión 2.2
+*Problema en separación por nombre arreglado.
+
+Versión 2.3
+*Añadido las listas de errores, para los flats flaterror.log y para los objetos Imgerror.log.
+
+Versión 2.4
+*Añadido medición de offset entre imágenes.
+
+Versión 2.4.1
+*Corrección completa de errores en: offset.py, correcion.py, adds.py, slicef.py, y div.py.
+
+Versión 2.5
+*Añadido alineación y combinación de las imágenes.
+
+Versión 2.5.1
+*Problema de separación de flats saturados arreglado (2º versión).
+*Corrección de separación de imágenes erroneas o test.
+*Añadido un nuevo directorio con Imágenes finales.
